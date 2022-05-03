@@ -216,4 +216,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Ignorar la información de la BD
+postgres_data
+
 # End of https://www.toptal.com/developers/gitignore/api/macos,node,windows,linux
