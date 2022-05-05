@@ -1,15 +1,10 @@
-const pool = require('../libs/postgres.pool')
+const sequelize = require('../libs/sequelize');
+const { models } = require('./../libs/sequelize');
 
 class UserServices {
-  constructor() {
-    this.pool = pool;
-    this.pool.on('error', (err) => console.error(err))
-  }
-
   async find() {
-    const query = 'SELECT * FROM users;'
-    const rta = await this.pool.query(query);
-    return rta.rows;
+    const res = await models.Users.findAll();
+    return res;
   }
 }
 
