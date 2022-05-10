@@ -13,7 +13,7 @@ const UsersSchema = {
     allowNull: false,
     type: DataTypes.STRING,
   },
-  surname: {
+  surnames: {
     allowNull: false,
     type: DataTypes.STRING,
   },
@@ -29,7 +29,7 @@ const UsersSchema = {
   enable: {
     allowNull: false,
     type: DataTypes.BOOLEAN,
-    defaultValue: false,
+    defaultValue: true,
   },
   createdAt: {
     allowNull: false,
@@ -40,7 +40,7 @@ const UsersSchema = {
   updateAt: {
     allowNull: false,
     type: DataTypes.DATE,
-    file: 'update_at',
+    field: 'update_at',
     defaultValue: Sequelize.NOW,
   },
 };
