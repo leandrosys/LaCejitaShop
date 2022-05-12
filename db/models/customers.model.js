@@ -1,32 +1,41 @@
 const { Model, DataTypes, Sequelize } = require('sequelize');
 
-const USERS_TABLE = 'tbl_users';
+const CUSTOMERS_TABLE = 'tbl_customers';
 
-const UsersSchema = {
+const CustomersSchema = {
   id: {
     allowNull: false,
     autoIncrement: true,
     primaryKey: true,
     type: DataTypes.INTEGER,
   },
-  email: {
+  typeDocument: {
+    allowNull: false,
+    type: DataTypes.STRING,
+    field: 'type_Document',
+  },
+  idDocument: {
     allowNull: false,
     type: DataTypes.STRING,
     unique: true,
+    field: 'id_document',
   },
-  password: {
+  name: {
     allowNull: false,
     type: DataTypes.STRING,
   },
-  role: {
+  lastname: {
     allowNull: false,
     type: DataTypes.STRING,
-    defaultValue: 'customer',
+    field: 'last_name',
   },
-  enable: {
+  phone: {
     allowNull: false,
-    type: DataTypes.BOOLEAN,
-    defaultValue: true,
+    type: DataTypes.INTEGER,
+  },
+  address: {
+    allowNull: false,
+    type: DataTypes.STRING,
   },
   createdAt: {
     allowNull: false,
@@ -42,19 +51,19 @@ const UsersSchema = {
   },
 };
 
-class Users extends Model {
+class Customers extends Model {
   static associate() {
-    // asociate
+    //asociate
   }
 
   static config(sequelize) {
     return {
       sequelize,
-      tableName: USERS_TABLE,
-      modelName: 'Users',
-      timestamps: false,
+      tableName: CUSTOMERS_TABLE,
+      modelName: 'Customers',
+      timestamp: false,
     };
   }
 }
 
-module.exports = { USERS_TABLE, UsersSchema, Users };
+module.exports = { CUSTOMERS_TABLE, CustomersSchema, Customers };
